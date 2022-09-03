@@ -1,18 +1,18 @@
 class ApplicationController < Sinatra::Base
   set :default_content_type, 'application/json'
 
-  get '/games' do
-    games = Game.all.order(:title).limit(10)
+  get '/articles' do
+    games = Articles.all.order(:title).limit(10)
     games.to_json
     end
-    get '/reviews' do
-    reviews = Review.all.order(:title).limit(10)
-    reviews.to_json
+    get '/views' do
+    views = View.all
+    views.to_json
     end
     
-    get '/reviews/:id' do
-    review = Review.find(params[:id])
-    review.to_json
+    get '/views/:id' do
+    views = View.find(params[:id])
+    views.to_json
     end
     
     get '/games/:id' do

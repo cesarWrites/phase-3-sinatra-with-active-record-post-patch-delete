@@ -10,7 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_07_19_142825) do
+ActiveRecord::Schema.define(version: 2022_09_03_182503) do
+
+  create_table "articles", force: :cascade do |t|
+    t.string "title"
+    t.string "author"
+    t.integer "year"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
 
   create_table "games", force: :cascade do |t|
     t.string "title"
@@ -19,6 +27,10 @@ ActiveRecord::Schema.define(version: 2021_07_19_142825) do
     t.integer "price"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "readers", force: :cascade do |t|
+    t.string "name"
   end
 
   create_table "reviews", force: :cascade do |t|
@@ -32,6 +44,14 @@ ActiveRecord::Schema.define(version: 2021_07_19_142825) do
 
   create_table "users", force: :cascade do |t|
     t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "views", force: :cascade do |t|
+    t.integer "rating"
+    t.string "comment"
+    t.integer "article_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
